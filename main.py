@@ -22,9 +22,8 @@ while True:
                     break
 
                 # Procura a substring dentro da segunda string
-                if substring in  string_2:
-                    if max_length < len(substring):
-                        max_length = len(substring)
+                if substring in string_2:
+                    max_length = len(substring)
                     
         # Adiciona a saída
         output += f"{max_length}\n"
