@@ -1,5 +1,3 @@
-import re
-
 output = ""
 while True:
     try:
@@ -16,21 +14,18 @@ while True:
         
         # Verifica cada substring possível para encontrar a substring com maior comprimento
         for i in range(len(string_1)):
-            j = i
-            while j < len(string_1) - i:
-                # Pular substring menores ou de mesmo tamanho que a já registrada 
-                if i + 1 <= max_length:
-                    break
-                
+            for j in range(len(string_1) - i):
                 substring = string_1[j:j+i+1]
 
+                # Pular substring menores ou de mesmo tamanho que a já registrada 
+                if len(substring) <= max_length:
+                    break
+
                 # Procura a substring dentro da segunda string
-                if re.search(rf"({substring})", string_2) != None:
+                if substring in  string_2:
                     if max_length < len(substring):
                         max_length = len(substring)
                     
-                j += 1
-
         # Adiciona a saída
         output += f"{max_length}\n"
     except EOFError:
