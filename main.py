@@ -15,11 +15,11 @@ while True:
         # Verifica cada substring possível para encontrar a substring com maior comprimento
         for i in range(len(string_1)):
             for j in range(len(string_1) - i):
-                substring = string_1[j:j+i+1]
-
                 # Pular substring menores ou de mesmo tamanho que a já registrada 
                 if i + 1 <= max_length:
                     break
+
+                substring = string_1[j:j+i+1]
 
                 # Procura a substring dentro da segunda string
                 if substring in string_2:
