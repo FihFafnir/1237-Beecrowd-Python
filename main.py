@@ -18,7 +18,7 @@ while True:
                 substring = string_1[j:j+i+1]
 
                 # Pular substring menores ou de mesmo tamanho que a já registrada 
-                if len(substring) <= max_length:
+                if i + 1 <= max_length:
                     break
 
                 # Procura a substring dentro da segunda string
