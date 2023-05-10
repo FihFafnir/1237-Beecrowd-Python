@@ -1,4 +1,4 @@
-output = ""
+output = []
 while True:
     try:
         # Entrada
@@ -13,22 +13,18 @@ while True:
             string_2 = temp
         
         # Verifica cada substring possível para encontrar a substring com maior comprimento
-        for i in range(len(string_1)):
-            # Pular substring menores ou de mesmo tamanho que a já registrada 
-            if i + 1 <= max_length:
-                continue
-
-            for j in range(len(string_1) - i):
+        for i in range(1, len(string_1)):
+            for j in range(len(string_1) - i + 1):
                 # Procura a substring dentro da segunda string
-                substring = string_1[j:j+i+1]
-
+                substring = string_1[j:j+i]
                 if substring in string_2:
                     max_length = len(substring)
-                    
+                    break 
         # Adiciona a saída
-        output += f"{max_length}\n"
+        output.append(max_length)
     except EOFError:
         break
 
 # Saída
-print(output, end="")
+for i in output:
+    print(i)
